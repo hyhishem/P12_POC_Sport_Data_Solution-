@@ -9,7 +9,7 @@ with open("input.json", "r") as f:
 
 messages = []
 for record in data:
-    value = json.loads(record["value"])  
+    value = json.loads(record["value"]) 
     msg = (
         f"{value['prenom']} {value['nom']} a fait "
         f"{value['duration_minutes']} minutes de {value['type_sport']}"
