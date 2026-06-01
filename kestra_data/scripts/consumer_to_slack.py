@@ -1,30 +1,20 @@
-import pandas as pd
 import json
-import re
-from datetime import datetime
 
+data = []
 with open("input.json", "r") as f:
-  data_str = f.read()
-cleaned_str = (
-  data_str.replace("key:", '"key":')
-  .replace("value:", '"value":')
-  .replace("topic:", '"topic":')
-  .replace("headers:", '"headers":')
-  .replace("partition:", '"partition":')
-  .replace("timestamp:", '"timestamp":"')
-  .replace(",offset:", '","offset":')
-  .replace('\\"', "'")
-)
+    for line in f:
+        line = line.strip()
+        if line:
+            data.append(json.loads(line))
 
-# 2. Charger le dictionnaire principal
-data_dict = json.loads(cleaned_str)
-
-record = data_dict["value"]
-record = json.loads(record.replace("'", '"'))
-
-
-message = f"{record['prenom']}  {record['nom']} a fait {record['duration_minutes']} minutes de {record['type_sport']}"
-
+messages = []
+for record in data:
+    value = json.loads(record["value"])  
+    msg = (
+        f"{value['prenom']} {value['nom']} a fait "
+        f"{value['duration_minutes']} minutes de {value['type_sport']}"
+    )
+    messages.append(msg)
 
 with open("output.txt", "w") as f:
-  f.write(message)
+    f.write("\n".join(messages))
