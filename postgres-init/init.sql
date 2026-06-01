@@ -14,15 +14,14 @@ CREATE TABLE IF NOT EXISTS strava.sport (
 
 CREATE SCHEMA IF NOT EXISTS BI;
 
-
 CREATE TABLE IF NOT EXISTS BI.prime_sport (
     id_salarie          INT PRIMARY KEY,
     nom                 TEXT,
     prenom              TEXT,
     nb_activites        INT,
-    moyen_de_deplacement TEXT    
+    moyen_de_deplacement TEXT,    
     salaire_brut        NUMERIC,
     prime               NUMERIC,
     eligible_avantage_prime      BOOLEAN,
-    eligible_avantage_5jours       BOOLEAN,
+    eligible_avantage_5jours       BOOLEAN
 );
