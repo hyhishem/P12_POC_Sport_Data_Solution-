@@ -22,6 +22,6 @@ CREATE TABLE IF NOT EXISTS BI.prime_sport (
     moyen_de_deplacement TEXT,    
     salaire_brut        NUMERIC,
     prime               NUMERIC,
-    eligible_avantage_prime      BOOLEAN,
-    eligible_avantage_5jours       BOOLEAN
+    eligible_avantage_prime   BOOLEAN,
+    eligible_avantage_5jours  BOOLEAN
 );
