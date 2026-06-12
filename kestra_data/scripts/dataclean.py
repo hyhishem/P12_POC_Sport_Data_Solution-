@@ -1,5 +1,5 @@
 import pandas as pd
-
+import os
 
 # -----------------------------
 # Load & join 
@@ -39,12 +39,12 @@ df['moyen_de_deplacement'] = df['moyen_de_deplacement'].replace({
 # Calcul distance
 # -----------------------------
 
-
 import openrouteservice
 
 client = openrouteservice.Client(
-    key= os.getenv("KEY_API_GEO")) 
-)
+    key= os.getenv("KEY_API_GEO")
+) 
+
 
 def geocode(adresse):
 
@@ -82,11 +82,11 @@ for adresse_domicile in df['adresse']:
     distances.append(distance)
 
 
-
-
 df['distance_domicile_travail'] = distances
 
 df.to_csv("RH_Sport.csv", index=False)
+
+
 
 
 
