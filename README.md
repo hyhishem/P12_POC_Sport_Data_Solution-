@@ -44,12 +44,11 @@ Renommer le fichier et completer les variables d'environements
 
 
  ```bash
-while read -r line; do
-    key="${line%%=*}"
-    value="${line#*=}"
-
-    echo "SECRET_${key}=$(printf '%s' "$value" | base64 -w 0)"
-done < .env > .env_encoded
+  while read -r line; do
+      key="${line%%=*}"
+      value="${line#*=}"
+      echo "SECRET_${key}=$(printf '%s' "$value" | base64 -w 0)"
+  done < .env > .env_encoded
  ```
 
 
