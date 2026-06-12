@@ -1,7 +1,7 @@
 id_salarie,nom,prenom,bu_equipe,salaire_brut,nombre_cp,adresse,moyen_de_deplacement,type_sport,distance_domicile_travail
 56482,Dumont,Michelle,Ventes,51390,27,"100 avenue de la Gare, 30900 Nîmes",auto_moto,Tennis,49.25
 17757,Bazin,Margaret,Support,31460,25,"avenue de La Mer, 34470 Pérols",velo_trot,Badminton,3.87
-17036,Jacques,Julien,Marketing,72480,29,"28 Rue du Port, 34140 Mèze",auto_moto,Escalade,39.27
+17036,Jacques,Julien,Marketing,72480,29,"28 Rue du Port, 34140 Mèze",auto_moto,Escalade,39.3
 90284,Chartier,Aurélie,Marketing,56400,29,"136 Rue des Grottes, 34130 Mauguio",auto_moto,Randonnée,8.96
 83440,Maillard,Augustin,R&D,31030,28,"38 Rue du Muscadet, 34090 Montpellier",transport,Triathlon,8.7
 33386,Neveu,Yves,R&D,50170,28,"24 Rue de la Cadoule, 34740 Vendargues",auto_moto,Randonnée,14.01
@@ -15,7 +15,7 @@ id_salarie,nom,prenom,bu_equipe,salaire_brut,nombre_cp,adresse,moyen_de_deplacem
 22426,Poirier,Gabriel,Ventes,67610,26,"103 avenue de la Plage, 34450 Vias",auto_moto,Voile,66.46
 44472,Lemaire,Maurice,Finance,63860,29,"94 Rue Jean Jaurès, 34740 Vendargues",auto_moto,Football,14.3
 97309,Roussel,Charles,Ventes,73490,28,"51 avenue de La Mer, 34470 Pérols",auto_moto,Tennis,3.87
-39874,Rossi,Claire,Support,57460,27,"87 Rue du Marché, 34400 Lunel",auto_moto,Tennis,32.14
+39874,Rossi,Claire,Support,57460,27,"87 Rue du Marché, 34400 Lunel",auto_moto,Tennis,28.47
 49804,Carlier,Constance,R&D,70060,25,"200 Rue du Stade, 34830 Clapiers",auto_moto,Runing,10.17
 37866,Gautier,Marine,R&D,50700,27,"4 avenue de la Paix, 34690 Fabrègues",transport,Natation,21.26
 71190,Vallet,Andre,Finance,58580,26,"68 Rue du N, 34920 Le Crès",velo_trot,Badminton,10.63
@@ -36,7 +36,7 @@ id_salarie,nom,prenom,bu_equipe,salaire_brut,nombre_cp,adresse,moyen_de_deplacem
 37830,Toussaint,Alexandre,Ventes,28050,26,"18 Rue des Agapanthes, 34470 Pérols",transport,Randonnée,4.01
 34678,Mendes,Astrid,Finance,59520,27,"32 avenue Jean - Louis Etienne, 34740 Vendargues",auto_moto,Randonnée,13.7
 70575,Munoz,Charlene,R&D,43520,25,"138 Rue de la République, 30600 Vauvert",auto_moto,Randonnée,40.47
-66882,Leleu,Guillaume,Finance,43860,28,"3 Rue Tadorne, 34140 Mèze",auto_moto,Judo,40.24
+66882,Leleu,Guillaume,Finance,43860,28,"3 Rue Tadorne, 34140 Mèze",auto_moto,Judo,40.28
 60358,Lesage,Mathilde,R&D,44830,28,"15 Rue de la République, 34000 Montpellier",velo_trot,Natation,5.52
 50504,Fabre,Christiane,Finance,37910,26,"10 Rue du Marché aux Raisins, 34750 Villeneuve-lès-Maguelone",velo_trot,Escalade,11.38
 56530,Morin,Francis,Ventes,51800,29,"124 Rue des Écoles, 34540 Balaruc-les-Bains",transport,Runing,34.95
@@ -78,7 +78,7 @@ id_salarie,nom,prenom,bu_equipe,salaire_brut,nombre_cp,adresse,moyen_de_deplacem
 92440,Lacroix,Sébastien,Marketing,35320,27,"369 chemin du Thym, 34170 Castelnau-le-Lez",transport,Triathlon,8.18
 86486,Marchand,Emmanuel,Ventes,37120,27,"3 allée des Cévennes, 34630 Saint-Thibéry",auto_moto,Judo,57.63
 56263,Hernandez,William,Support,34090,29,"246 Rue du Boulidou, 34980 Saint-Clément-de-Rivière",auto_moto,Boxe,16.81
-59040,Lefebvre,William,Finance,38460,29,"9 Rue du Lierre, 34850 Pinet",auto_moto,Judo,48.26
+59040,Lefebvre,William,Finance,38460,29,"9 Rue du Lierre, 34850 Pinet",auto_moto,Judo,48.3
 29450,Lambert,Julie,R&D,35470,25,"36 Rue de la Condamine, 34970 Lattes",auto_moto,Randonnée,2.77
 53944,Lebon,Nath,Support,56100,29,"58 Bd Ernest Renan, 34000 Montpellier",velo_trot,Natation,5.24
 27483,Raymond,Juliette,R&D,55910,25,"Rue du Ctre, 34160 Saint-Drézéry",auto_moto,Badminton,26.66
