@@ -1,15 +1,57 @@
 # POC Sport Data Solution
 
+## 1. Contexte et détails du projet
 
+### Présentation
 
-## 1. Context et details
+Dans le cadre d'un Proof of Concept (POC), Sport Data Solution souhaite mettre en place une plateforme permettant de valoriser la pratique sportive de ses collaborateurs.
+
+L'objectif est d'automatiser la collecte, le traitement et l'analyse des données sportives des employés afin de déterminer leur éligibilité à différents avantages proposés par l'entreprise :
+
+- Une prime annuelle de 5 % du salaire brut pour les salariés utilisant un mode de déplacement sportif pour se rendre au bureau.
+- 5 journées « bien-être » supplémentaires pour les salariés ayant une pratique sportive régulière et soutenue.
+
+Ce projet vise également à :
+
+- Évaluer la faisabilité technique de la solution.
+- Centraliser les données RH et sportives.
+- Automatiser les traitements et les calculs d'éligibilité.
+- Estimer l'impact financier pour l'entreprise.
+- Publier automatiquement les activités sportives sur Slack afin de favoriser l'engagement des collaborateurs.
+- Mettre à disposition des indicateurs de suivi via un outil de Business Intelligence.
+- Garantir la qualité des données et le monitoring continu de la plateforme.
 
 
 ### Objectifs
 
+### Objectifs métier
+
+- Encourager la pratique sportive au sein de l'entreprise.
+- Identifier les collaborateurs éligibles aux avantages sportifs.
+- Évaluer l'impact financier du dispositif.
+- Favoriser l'engagement des salariés grâce à la communication automatique sur Slack.
+
+### Objectifs techniques
+
+- Construire un pipeline de données.
+- Assurer la qualité et la fiabilité des données.
+- Mettre en place un système de monitoring complet.
+- Fournir des tableaux de bord décisionnels.
+- Permettre la réexécution des traitements afin de recalculer les indicateurs historiques.
+
 
 ### Technologies utilisées
-
+- Docker pour la conteneurisation
+- Docker Compose pour l'orchestration locale des conteneurs
+- Git pour le versioning
+- Python pour les scripts d'ingestion et de transformation
+- Kestra pour l'orchestration des workflows
+- PostgreSQL pour le stockage des données
+- Redpanda comme broker de messages  des événements sportifs
+- Slack API pour les notifications automatiques
+- Metabase comme outil BI
+- Prometheus pour la collecte des métriques
+- Grafana pour le monitoring et la supervision
 
 ## 2. Prérequis
 Avant de pouvoir utiliser ce projet, assurez-vous d'avoir installé les éléments suivants :
@@ -56,10 +98,81 @@ Renommer le fichier et completer les variables d'environements
 
 ## 4. Docker image 
 
+Construire l'image utilisée par les workflows Kestra :
 
+```bash
+docker build -t python-strava-pandas:latest -f Dockerfile .
+```
 
+Vérifier que l'image a bien été créée :
 
-docker build -t python-strava-pandas:latest -f Dockerfile  . 
+```bash
+docker images
+```
 
+## 5. Démarrage de la plateforme
+
+Lancer l'ensemble des services :
+
+```bash
+docker compose up -d
+```
+
+Vérifier que tous les conteneurs sont actifs :
+
+```bash
+docker ps
+```
+## 6. Démarrage de la plateforme
+
+Une fois les services démarrés, connectez-vous à Kestra :
+
+```bash
+http://localhost:8080
+```
+
+Importez ensuite les fichiers YAML présents dans les sous dossiers de  /data_kestra/Workflows 
+
+## 7. Ordre d'exécution des workflows
+
+Après avoir importé les workflows dans Kestra, exécuter les workflows dans l'ordre suivant :
+
+### 1. Nettoyage et enrichissement des données RH
+
+**Workflow :** `projet12_datacleaning`
+
+Ce workflow nettoie les données RH et calcule la distance domicile-travail afin de générer le fichier `RH_Sport.csv`.
+
+### 2. Génération des activités sportives
+
+**Workflow :** `projet12_historique_strava`
+
+Ce workflow génère des événements sportifs et les enregistre dans PostgreSQL.
+
+### 3. Capture des nouveaux événements
+
+**Workflow :** `projet12_trigger_postgresql_to_producer_strava_multi`
+
+Ce workflow est déclenché automatiquement lors de l'ajout d'une nouvelle activité dans PostgreSQL. Les événements sont ensuite publiés dans Redpanda.
+
+### 4. Consommation des événements
+
+#### Publication Slack
+
+**Workflow :** `projet12_consumers_to_slack`
+
+Publie automatiquement les activités sportives dans le canal Slack dédié.
+
+#### Alimentation du Data Warehouse
+
+**Workflow :** `projet12_consumers_to_BI`
+
+Consomme les événements Redpanda, enrichit les données et alimente la table de faits du Data Warehouse utilisée par Metabase.
+
+### 5. Contrôle qualité
+
+**Workflow :** `projet12_test`
+
+Vérifie notamment la cohérence des volumes entre PostgreSQL et le Data Warehouse  ainsi que  la cohérence des données de mobilité. 
 
 
