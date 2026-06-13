@@ -2,43 +2,41 @@
 
 ## 1. Contexte et détails du projet
 
-### Présentation
+## Présentation
 
-Dans le cadre d'un Proof of Concept (POC), Sport Data Solution souhaite mettre en place une plateforme permettant de valoriser la pratique sportive de ses collaborateurs.
+Dans le cadre d'un Proof of Concept (POC), Sport Data Solution met en place une plateforme visant à valoriser la pratique sportive des collaborateurs.
 
-L'objectif est d'automatiser la collecte, le traitement et l'analyse des données sportives des employés afin de déterminer leur éligibilité à différents avantages proposés par l'entreprise :
+L'objectif est d'automatiser la collecte et le traitement des données RH et sportives afin de déterminer l'éligibilité des salariés à différents avantages :
 
-- Une prime annuelle de 5 % du salaire brut pour les salariés utilisant un mode de déplacement sportif pour se rendre au bureau.
-- 5 journées « bien-être » supplémentaires pour les salariés ayant une pratique sportive régulière et soutenue.
+- Une prime annuelle de 5 % du salaire brut pour les collaborateurs utilisant un mode de déplacement sportif pour se rendre au bureau.
+- 5 journées « bien-être » supplémentaires pour les salariés ayant une pratique sportive régulière.
 
-Ce projet vise également à :
+Le projet permet également de :
 
-- Évaluer la faisabilité technique de la solution.
 - Centraliser les données RH et sportives.
 - Automatiser les traitements et les calculs d'éligibilité.
-- Estimer l'impact financier pour l'entreprise.
-- Publier automatiquement les activités sportives sur Slack afin de favoriser l'engagement des collaborateurs.
-- Mettre à disposition des indicateurs de suivi via un outil de Business Intelligence.
-- Garantir la qualité des données et le monitoring continu de la plateforme.
+- Mettre en place une architecture événementielle pour la circulation des données.
+- Publier automatiquement les activités sportives sur Slack.
+- Alimenter un Data Warehouse pour le suivi des KPI.
+- Assurer la qualité des données et le monitoring de la plateforme.
 
 
-### Objectifs
+## Objectifs
 
 ### Objectifs métier
 
-- Encourager la pratique sportive au sein de l'entreprise.
-- Identifier les collaborateurs éligibles aux avantages sportifs.
-- Évaluer l'impact financier du dispositif.
-- Favoriser l'engagement des salariés grâce à la communication automatique sur Slack.
+- Encourager la pratique sportive en entreprise.
+- Identifier les salariés éligibles aux avantages sportifs.
+- Mesurer l’impact financier du dispositif.
+- Favoriser l’engagement via les publications Slack.
 
 ### Objectifs techniques
 
-- Construire un pipeline de données.
-- Assurer la qualité et la fiabilité des données.
+- Construire un pipeline de données automatisé de bout en bout.
+- Mettre en place une architecture événementielle (PostgreSQL, Debezium, Redpanda).
+- Alimenter un Data Warehouse pour le reporting (Metabase).
+- Garantir la qualité et la cohérence des données.
 - Mettre en place un système de monitoring complet.
-- Fournir des tableaux de bord décisionnels.
-- Permettre la réexécution des traitements afin de recalculer les indicateurs historiques.
-
 
 ### Technologies utilisées
 - Docker pour la conteneurisation
