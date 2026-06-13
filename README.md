@@ -11,7 +11,6 @@
 ### Technologies utilisées
 
 
-
 ## 2. Prérequis
 Avant de pouvoir utiliser ce projet, assurez-vous d'avoir installé les éléments suivants :
 
